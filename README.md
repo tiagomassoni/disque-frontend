@@ -26,7 +26,7 @@ npm start
 Agora para visualizar a aplicação deve-se abrir no navegador a seguinte url: `http://localhost:8000`.
 
 
-## Directory Layout
+## Estrutura do projeto
 
 ```
 app/                                --> all of the source files for the application
