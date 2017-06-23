@@ -5,5 +5,7 @@ app.config(function ($routeProvider) {
     }).when("/register", {
         templateUrl: "view/register.html",
         controller : "registerCtrl"
+    }).otherwise({
+        redirectTo: '/'
     });
 });
