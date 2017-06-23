@@ -1,3 +1,1 @@
-const app = angular.module("vs", [
-
-]);
+const app = angular.module("vs", ["ngRoute"]);

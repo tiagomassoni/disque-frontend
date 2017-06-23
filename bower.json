@@ -9,7 +9,8 @@
     "express"
   ],
   "authors": [
-    "Pablo Victor"
+    "Pablo Victor",
+    "Wendley Paulo de França"
   ],
   "repository": {
     "type": "git",

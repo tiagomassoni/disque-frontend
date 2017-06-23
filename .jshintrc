@@ -69,7 +69,7 @@
     "yui": false,
     
     "globals": {
-        "angular": false,
+        "angular": true,
         "describe": false,
         "it": false,
         "expect": false,
