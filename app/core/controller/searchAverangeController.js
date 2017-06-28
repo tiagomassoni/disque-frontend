@@ -1,4 +1,4 @@
-app.controller("searchAverangeCtrl", function ($scope, GeneralService) {
+app.controller("searchAverangeCtrl", function ($scope, GeneralService, toastr) {
     var self = $scope;
     self.average = null;
 
@@ -6,7 +6,7 @@ app.controller("searchAverangeCtrl", function ($scope, GeneralService) {
         GeneralService.getAveragePerPatient(id).then(function successCallback(response){
             self.average = response.data.obj;
         },function errorCallback(error) {
-
+            toastr.info("Unidade Não Encontrada");
         });
     }
 });
