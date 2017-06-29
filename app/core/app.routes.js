@@ -8,7 +8,7 @@ app.config(function ($routeProvider) {
     }).when("/search_health_unit", {
         templateUrl: "view/searchHealthUnit.html",
         controller : "searchHealthUnitCtrl",
-        controllerAs: "searchHUCtrl"
+        controllerAs: "searchHealthUnitCtrl"
     }).otherwise({
         redirectTo: '/'
     });
