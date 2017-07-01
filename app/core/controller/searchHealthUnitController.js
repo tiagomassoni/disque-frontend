@@ -2,17 +2,16 @@ app.controller("searchHealthUnitCtrl", function (HealthUnitService) {
 
     var self = this;
 
-    this.searchHU = function(neighborhood) {
-        console.log("Busca por Bairro");
-        console.log(neighborhood);
+    self.units = [];
+
+    this.searchHU = function (neighborhood) {
         HealthUnitService.getHealthUnitByNeighborhood(neighborhood)
-            .then (function success(response){
-                console.log("Sucesso")
-                console.log(response);
-            }, function error(error){
-                console.log("Erro")
+            .then(function success(response) {
+                self.units = [];
+                self.units.push(response.data);
+            }, function error(error) {
+                console.log("Erro");
                 console.log(error);
             });
     }
-    
 });
