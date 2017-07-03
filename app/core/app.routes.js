@@ -2,9 +2,10 @@ app.config(function ($routeProvider) {
     $routeProvider.when("/",{
         templateUrl: "view/search.html",
         controller : "searchCtrl"
-    }).when("/register", {
-        templateUrl: "view/register.html",
-        controller : "registerCtrl"
+    }).when("/complaint/register", {
+        templateUrl: "view/registerComplaint.html",
+        controller : "registerComplaintCtrl",
+        controllerAs: "registerComplaintCtrl"
     }).otherwise({
         redirectTo: '/'
     });

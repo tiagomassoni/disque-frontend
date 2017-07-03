@@ -8,7 +8,7 @@ app.factory("ComplaintService", function ($http, AppConfig) {
     }
     
     function _openComplaint(complaint) {
-        return $http.post(AppConfig.baseUrl + "queixa/", angular.toJson(complaint));
+        return $http.post(AppConfig.baseUrl + "queixa/", JSON.stringify(complaint));
     }
 
     function _updateComplaint(id, complaint) {
