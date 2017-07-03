@@ -1,14 +1,16 @@
-app.controller("registerComplaintCtrl", function (ComplaintService, $window) {
+app.controller("registerComplaintCtrl", function ($scope, ComplaintService, $window, toastr) {
     var self = this;
+
+    self.responseComplaintId = "";
 
     self.registerComplaint = function (complaint) {
         ComplaintService.openComplaint(complaint)
             .then(function success(response){
-                $window.alert("Queixa adicionada com sucesso! " 
-                + "Você pode acompanhar a queixa com esse código: " + response.data.id);
+                toastr.success("Queixa adicionada com sucesso!");
+                self.responseComplaintId = response.data.id;
             }, function error(data, status, headers, config){
                 console.log(data);
-                $window.alert("Problemas ao tentar adicionar queixa.");
+                toastr.error("Problemas ao tentar adicionar queixa.");
             });            
     }
 });

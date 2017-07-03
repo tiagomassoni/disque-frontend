@@ -1,4 +1,4 @@
-app.controller("searchHealthUnitCtrl", function (HealthUnitService) {
+app.controller("searchHealthUnitCtrl", function (HealthUnitService, toastr) {
 
     var self = this;
 
@@ -9,11 +9,12 @@ app.controller("searchHealthUnitCtrl", function (HealthUnitService) {
             .then(function success(response) {
                 self.units = [];
                 self.units.push(response.data);
+                toastr.success("Foram encontradas Unidades de saúde");
             }, function failed(error) {
                 if(error.data.status == 500) {
-                    console.log("Nenhuma unidade foi encontrada");
+                    toastr.error("Nenhuma unidade foi encontrada", "Erro");
                 } else {
-                    console.log("Erro ao tentar se conectar com o servidor");
+                    toastr.error("Erro ao tentar se conectar com o servidor", "Erro");
                 }
             });
     }
