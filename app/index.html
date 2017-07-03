@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
         <link rel="stylesheet" href="bower_components/jquery-ui/themes/smoothness/jquery-ui.css">
         <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css">
+        <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css">
         <link rel="stylesheet" href="assets/css/main.css">
         <link rel="stylesheet" href="assets/css/animate.css">
         <link rel="stylesheet" href="assets/css/searchHealthUnit.css">
@@ -25,6 +26,7 @@
                             <ul class="nav navbar-nav">
                                 <li><a href="#/!"><i class="fa fa-home"></i> Home</a></li>
                                 <li><a href="#!search_health_unit"> Consultar Unidade de Saúde</a></li>
+                                <li><a href="#!searchcomplaint"><i class="fa fa-search"></i> Pesquisar Queixa</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
                                 <li>
@@ -48,14 +50,18 @@
         <script src="bower_components/angular-route/angular-route.js"></script>
         <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
         <script src="bower_components/angular-messages/angular-messages.js"></script>
+        <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+
         <!-- Application scripts: -->
         <script src="core/app.js"></script>
         <script src="core/app.routes.js"></script>
+        <script src="core/config/toastrConfig.js"></script>
         <script src="core/values/appConfigValue.js"></script>
         <script src="core/service/complaintFactory.js"></script>
         <script src="core/controller/searchController.js"></script>
         <script src="core/controller/registerComplaintController.js"></script>
         <script src="core/controller/searchHealthUnitController.js"></script>
         <script src="core/service/healthUnitFactory.js"></script>
+        <script src="core/controller/searchComplaintController.js"></script>
     </body>
 </html>

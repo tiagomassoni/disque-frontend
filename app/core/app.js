@@ -1,1 +1,1 @@
-const app = angular.module("vs", ["ngRoute", "ngMessages"]);
+const app = angular.module("vs", ["ngRoute", "ngMessages","ngAnimate", "toastr"]);
