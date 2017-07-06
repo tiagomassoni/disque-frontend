@@ -5,7 +5,6 @@ app.config(function ($routeProvider) {
     }).when("/complaint/register", {
         templateUrl: "view/registerComplaint.html",
         controller : "registerComplaintCtrl",
-        controllerAs: "registerComplaintCtrl"
     }).when("/searchcomplaint", {
         templateUrl : "view/search_complaint.html",
         controller: "searchComplaintCtrl"
@@ -13,6 +12,9 @@ app.config(function ($routeProvider) {
         templateUrl: "view/searchHealthUnit.html",
         controller : "searchHealthUnitCtrl",
         controllerAs: "searchHealthUnitCtrl"
+    }).when("/searchaverage",{
+        templateUrl : "view/search_average_per_patient.html",
+        controller: "searchAverangeCtrl"
     }).otherwise({
         redirectTo: '/'
     });

@@ -1,15 +1,15 @@
 <div class="container center-block">
 
-    <div class="jumbotron col-md-5 col-md-offset-3" ng-if="registerComplaintCtrl.responseComplaintId.length != 0">
+    <div class="jumbotron col-md-5 col-md-offset-3" ng-if="responseComplaintId.length != 0">
         <div class="row">
             <p>Queixa criada com sucesso!</p>
         </div>
         <div class="row">
-            <p>Você pode consultar o status da queixa pelo seguinte id: {{registerComplaintCtrl.responseComplaintId}}</p>
+            <p>Você pode consultar o status da queixa pelo seguinte id: {{responseComplaintId}}</p>
         </div>
     </div>
 
-    <div ng-if="registerComplaintCtrl.responseComplaintId.length == 0">
+    <div ng-if="responseComplaintId.length == 0">
         <form name="complaintForm">
             <div class="col-md-5 col-md-offset-3">
                 <fieldset>
@@ -98,7 +98,7 @@
                         </div>
                     </div>
                 </fieldset>
-                <button class="btn btn-primary btn-block" ng-click="registerComplaintCtrl.registerComplaint(complaint)" ng-disabled="complaintForm.$invalid">Adicionar Queixa</button>
+                <button class="btn btn-primary btn-block" ng-click="registerComplaint(complaint)" ng-disabled="complaintForm.$invalid">Adicionar Queixa</button>
             </div>
         </form>
     </div>

@@ -1,5 +1,5 @@
 app.controller("registerComplaintCtrl", function ($scope, ComplaintService, $window, toastr) {
-    var self = this;
+    var self = $scope;
 
     self.responseComplaintId = "";
 
@@ -8,8 +8,8 @@ app.controller("registerComplaintCtrl", function ($scope, ComplaintService, $win
             .then(function success(response){
                 toastr.success("Queixa adicionada com sucesso!");
                 self.responseComplaintId = response.data.id;
-            }, function error(data, status, headers, config){
-                console.log(data);
+            }, function error(error){
+                console.log(error);
                 toastr.error("Problemas ao tentar adicionar queixa.");
             });            
     }

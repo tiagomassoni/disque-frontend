@@ -1,6 +1,6 @@
-app.controller("searchHealthUnitCtrl", function (HealthUnitService, toastr) {
+app.controller("searchHealthUnitCtrl", function ($scope, HealthUnitService, toastr) {
 
-    var self = this;
+    var self = $scope;
 
     self.units = [];
 
