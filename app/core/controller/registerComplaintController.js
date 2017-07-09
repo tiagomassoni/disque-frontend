@@ -1,12 +1,11 @@
-app.controller("registerComplaintCtrl", function ($scope, ComplaintService, $window, toastr) {
-    var self = $scope;
+app.controller("registerComplaintCtrl", function ($scope,$http) {
 
-    self.responseComplaintId = "";
+    $scope.responseComplaintId = "";
 
-    self.registerComplaint = function (complaint) {
-        ComplaintService.openComplaint(complaint)
+    $scope.registerComplaint = function (complaint) {
+        $http.post("http://localhost:5000/SpringBootRestApi/api/queixa/", JSON.stringify(complaint))
             .then(function success(response){
-                toastr.success("Queixa adicionada com sucesso!");
+                console.log("Queixa adicionada com sucesso!");
                 self.responseComplaintId = response.data.id;
             }, function error(error){
                 console.log(error);

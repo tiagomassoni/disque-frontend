@@ -1,20 +1,19 @@
-app.controller("searchHealthUnitCtrl", function ($scope, HealthUnitService, toastr) {
+app.controller("searchHealthUnitCtrl", function ($scope, $http) {
 
-    var self = $scope;
+    $scope.units = [];
 
-    self.units = [];
-
-    this.searchHU = function (neighborhood) {
-        HealthUnitService.getHealthUnitByNeighborhood(neighborhood)
+    $scope.searchHU = function (neighborhood) {
+        $http.get("http://localhost:5000/SpringBootRestApi/api/unidade/busca?bairro=" + neighborhood)
             .then(function success(response) {
-                self.units = [];
-                self.units.push(response.data);
-                toastr.success("Foram encontradas Unidades de saúde");
+                $scope.units = [];
+                $scope.units.push(response.data);
+                console.log("Foram encontradas Unidades de saúde");
+                console.log(response.data);
             }, function failed(error) {
                 if(error.data.status == 500) {
-                    toastr.error("Nenhuma unidade foi encontrada", "Erro");
+                    console.log("Nenhuma unidade foi encontrada", "Erro");
                 } else {
-                    toastr.error("Erro ao tentar se conectar com o servidor", "Erro");
+                    console.log("Erro ao tentar se conectar com o servidor", "Erro");
                 }
             });
     }
