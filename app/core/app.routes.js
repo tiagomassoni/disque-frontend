@@ -10,7 +10,6 @@ app.config(function ($routeProvider) {
     }).when("/search_health_unit", {
         templateUrl: "view/searchHealthUnit.html",
         controller : "searchHealthUnitCtrl",
-        controllerAs: "searchHealthUnitCtrl"
     }).when("/searchaverage",{
         templateUrl : "view/search_average_per_patient.html",
         controller: "searchAverangeCtrl"
