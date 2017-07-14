@@ -1,7 +1,6 @@
 app.config(function ($routeProvider) {
     $routeProvider.when("/",{
-        templateUrl: "view/search.html",
-        controller : "searchCtrl"
+        templateUrl: "view/search.html"
     }).when("/complaint/register", {
         templateUrl: "view/registerComplaint.html",
         controller : "registerComplaintCtrl",
@@ -11,7 +10,6 @@ app.config(function ($routeProvider) {
     }).when("/search_health_unit", {
         templateUrl: "view/searchHealthUnit.html",
         controller : "searchHealthUnitCtrl",
-        controllerAs: "searchHealthUnitCtrl"
     }).when("/searchaverage",{
         templateUrl : "view/search_average_per_patient.html",
         controller: "searchAverangeCtrl"
