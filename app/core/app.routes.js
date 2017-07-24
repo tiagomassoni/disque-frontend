@@ -13,6 +13,9 @@ app.config(function ($routeProvider) {
     }).when("/searchaverage",{
         templateUrl : "view/search_average_per_patient.html",
         controller: "searchAverangeCtrl"
+    }).when("/createdcomplaint/:id", {
+        templateUrl : "view/successPage.html",
+        controller : "messageCreatedComplaintCtrl"
     }).otherwise({
         redirectTo: '/'
     });
