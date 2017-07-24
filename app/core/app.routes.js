@@ -16,6 +16,9 @@ app.config(function ($routeProvider) {
     }).when("/createdcomplaint/:id", {
         templateUrl : "view/successPage.html",
         controller : "messageCreatedComplaintCtrl"
+    }).when("/generalSituationComplaints", {
+        templateUrl : "view/generalSituationComplaints.html",
+        controller : "generalSituationComplaintsCtrl"
     }).otherwise({
         redirectTo: '/'
     });
