@@ -1,35 +1,90 @@
-const app = angular.module("vs", ["ngRoute", "ngMessages", "ngAnimate", "toastr"]);
+'use strict';
 
-app.config(['$locationProvider', '$routeProvider', '$httpProvider',
-    function ($locationProvider, $routeProvider, $httpProvider) {
+(function() {
+    var app = angular.module("vs", [
+        "ui.router",
+        "ngMessages",
+        "ngAnimate",
+        "toastr"
+        ]);
 
-        //routes
-        $routeProvider.when("/", {
-            templateUrl: "view/search.html"
-        }).when("/complaint/register", {
-            templateUrl: "view/registerComplaint.html",
-            controller: "registerComplaintCtrl",
-        }).when("/searchcomplaint", {
-            templateUrl: "view/search_complaint.html",
-            controller: "searchComplaintCtrl"
-        }).when("/search_health_unit", {
-            templateUrl: "view/searchHealthUnit.html",
-            controller: "searchHealthUnitCtrl",
-        }).when("/searchaverage", {
-            templateUrl: "view/search_average_per_patient.html",
-            controller: "searchAverangeCtrl"
-        }).when("/createdcomplaint/:id", {
-            templateUrl: "view/successPage.html",
-            controller: "messageCreatedComplaintCtrl"
-        }).when("/generalSituationComplaints", {
-            templateUrl: "view/generalSituationComplaints.html",
-            controller: "generalSituationComplaintsCtrl"
-        }).otherwise({
-            redirectTo: '/'
+    app.config(function ($stateProvider, $locationProvider, $urlRouterProvider) {
+        $locationProvider.hashPrefix('');
+        $stateProvider
+        .state("vs", {
+            abstract: true,
+            views: {
+                main: {
+                    templateUrl: "view/main.html",
+                    controller: "MainController"
+                }
+            }
+        })
+        .state("vs.home", {
+            url: "/",
+            views: {
+              content: {
+                templateUrl: 'view/home.html',
+              }
+            }
+        })
+        .state("vs.searchHealthUnit", {
+            url: "/searchHealthUnit",
+            views: {
+              content: {
+                templateUrl: 'view/searchHealthUnit.html',
+                controller: "searchHealthUnitCtrl"
+              }
+            }
+        })
+        .state("vs.searchComplaint", {
+            url: "/searchComplaint",
+            views: {
+              content: {
+                templateUrl: 'view/search_complaint.html',
+                controller: "searchComplaintCtrl"
+              }
+            }
+        })
+        .state("vs.searchAverage", {
+            url: "/searchAverage",
+            views: {
+              content: {
+                templateUrl: 'view/search_average_per_patient.html',
+                controller: "searchAverangeCtrl"
+              }
+            }
+        })
+        .state("vs.generalSituationComplaints", {
+            url: "/generalSituationComplaints",
+            views: {
+              content: {
+                templateUrl: 'view/generalSituationComplaints.html',
+                controller: "generalSituationComplaintsCtrl"
+              }
+            }
+        })
+        .state("vs.registerComplaint", {
+            url: "/registerComplaint",
+            views: {
+              content: {
+                templateUrl: 'view/registerComplaint.html',
+                controller: "registerComplaintCtrl"
+              }
+            }
+        })
+        .state("vs.successPage", {
+            url: "/succesPage/:id",
+            views: {
+                content: {
+                    templateUrl: 'view/successPage.html',
+                    controller: "messageCreatedComplaintCtrl"
+                }
+            }
         });
+ 
+        $urlRouterProvider.otherwise('/');
+        $locationProvider.html5Mode(false);
 
-
-
-
-
-    }]);
+        });
+})();
