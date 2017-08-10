@@ -1,37 +1,42 @@
-app.controller("generalSituationComplaintsCtrl", function ($scope, $http) {
+'use strict';
+(function() {
+    var app = angular.module('vs');
 
-    $scope.situation = "";
+    app.controller("generalSituationComplaintsCtrl", function ($scope, $http) {
 
-    var getGeneralSituationComplaints = function (neighborhood) {
-        $http.get("http://localhost:5000/SpringBootRestApi/api/geral/situacao")
-            .then(function success(response) {
-                console.log(response.data.obj);
+        $scope.situation = "";
 
-                if (response.data.obj == 0) {
-                    $scope.situation = {
-                        status: "RUIM",
-                        color: "label-danger"
-                    };
+        var getGeneralSituationComplaints = function (neighborhood) {
+            $http.get("http://localhost:5000/SpringBootRestApi/api/geral/situacao")
+                .then(function success(response) {
+                    console.log(response.data.obj);
 
-                } else if (response.data.obj == 1) {
+                    if (response.data.obj == 0) {
+                        $scope.situation = {
+                            status: "RUIM",
+                            color: "label-danger"
+                        };
 
-                    $scope.situation = {
-                        status: "REGULAR",
-                        color: "label-primary"
-                    };
-                } else {
-                    $scope.situation = "";
-                    $scope.situation = {
-                        status: "BOM",
-                        color: "label-success"
-                    };
+                    } else if (response.data.obj == 1) {
 
-                }
-            }, function failed(error) {
-                console.log("Erro na busca de unidades");
-                console.log(error.data.errorMessage);
-            });
-    }
+                        $scope.situation = {
+                            status: "REGULAR",
+                            color: "label-primary"
+                        };
+                    } else {
+                        $scope.situation = "";
+                        $scope.situation = {
+                            status: "BOM",
+                            color: "label-success"
+                        };
 
-    getGeneralSituationComplaints();
-});
+                    }
+                }, function failed(error) {
+                    console.log("Erro na busca de unidades");
+                    console.log(error.data.errorMessage);
+                });
+        }
+
+        getGeneralSituationComplaints();
+    });
+})();

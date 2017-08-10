@@ -1,5 +1,9 @@
-var app = angular.module('vs');
+'use strict';
 
-app.value("AppConfig", {
-    baseURL : "http://localhost:8080/"
-});
+(function() {
+	var app = angular.module('vs');
+
+	app.value("AppConfig", {
+	    baseURL : "http://localhost:8080/"
+	});
+})();

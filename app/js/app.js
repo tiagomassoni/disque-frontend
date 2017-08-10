@@ -16,7 +16,7 @@
             views: {
                 main: {
                     templateUrl: "view/main.html",
-                    controller: "MainController"
+                    controller: "MainController as mainCtrl"
                 }
             }
         })
@@ -51,7 +51,7 @@
             views: {
               content: {
                 templateUrl: 'view/search_average_per_patient.html',
-                controller: "searchAverangeCtrl"
+                controller: "searchAverageCtrl"
               }
             }
         })
