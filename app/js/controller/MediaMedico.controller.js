@@ -1,21 +1,18 @@
 'use strict';
-
 (function() {
 	var app = angular.module('vs');
 
-	app.controller("searchAverangeCtrl", function ($scope, $http) {
+	app.controller("PesquisaMediaMedicoCtrl", function PesquisaMediaMedicoCtrl(toastr, GeralService) {
 
-	    $scope.average = null;
+		var pesquisaMediaMedicoCtrl = this;
+	    pesquisaMediaMedicoCtrl.media = null;
 
-	    $scope.searchAveragePerPatient = function (id) {
-	    	// TODO: colocar chamadas http em um service assincrono com $q.deffer
-	        $http.get("http://localhost:5000/SpringBootRestApi/api/geral/medicos/" + id).then(function successCallback(response) {
-	            $scope.average = response.data.obj;
-	        }, function errorCallback(error) {
-	        	// TODO: adicionar um showToast pra ficar bonitinho
-	            console.log("Unidade Não Encontrada");
+	    pesquisaMediaMedicoCtrl.pesquisaMediaMedicoPorPaciente = function pesquisaMediaMedicoPorPaciente(unidadeSaudeId) {
+	        GeralService.getMediaMedico(unidadeSaudeId).then(function success(response) {
+	            pesquisaMediaMedicoCtrl.media = response.data.obj;
+	        }, function error() {
+	            toastr.error("Unidade Não Encontrada");
 	        });
 	    }
 	});
-
 })();

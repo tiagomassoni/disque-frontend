@@ -2,12 +2,13 @@
 (function() {
 	var app = angular.module('vs');
 
-	app.controller("MainController", function MainController($scope, $state) {
+	app.controller("MainController", function MainController($state) {
 
-    	$scope.goTo = function goTo(state) {
+		var mainCtrl = this;
+
+    	mainCtrl.goTo = function goTo(state) {
     		$state.go(state);
     	};
 	});
-
 })();
 	

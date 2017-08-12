@@ -2,16 +2,17 @@
 (function() {
     var app = angular.module('vs');
 
-    app.controller("registerComplaintCtrl", function registerComplaintCtrl($scope, $http, toastr, $state) {
+    app.controller("RegistraQueixaCtrl", function RegistraQueixaCtrl(toastr, $state, QueixaService) {
 
-        $scope.registerComplaint = function (complaint) {
-            $http.post("http://localhost:5000/SpringBootRestApi/api/queixa/", JSON.stringify(complaint))
+        var registraQueixaCtrl = this;
+
+        registraQueixaCtrl.registraQueixa = function registraQueixa(queixa) {
+            QueixaService.registraQueixa(queixa)
                 .then(function success(response) {
                     toastr.success("Queixa adicionada com sucesso!");
-                    $state.go('vs.successPage', {id: response.data.id});
-                }, function error(error) {
-                    console.log(error);
-                    console.log("Problemas ao tentar adicionar queixa.");
+                    $state.go('vs.sucesso', {id: response.data.id});
+                }, function error() {
+                    toastr.error("Problemas ao tentar adicionar queixa.");
                 });
         }
     });

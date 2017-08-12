@@ -28,57 +28,57 @@
               }
             }
         })
-        .state("vs.searchHealthUnit", {
-            url: "/searchHealthUnit",
+        .state("vs.pesquisaUnidadeSaude", {
+            url: "/pesquisaUnidadeSaude",
             views: {
               content: {
-                templateUrl: 'view/searchHealthUnit.html',
-                controller: "searchHealthUnitCtrl"
+                templateUrl: 'view/pesquisaUnidadeSaude.html',
+                controller: "PesquisaUnidadeSaudeCtrl as pesquisaUnidadeSaudeCtrl"
               }
             }
         })
-        .state("vs.searchComplaint", {
-            url: "/searchComplaint",
+        .state("vs.pesquisaQueixa", {
+            url: "/pesquisaQueixa",
             views: {
               content: {
-                templateUrl: 'view/search_complaint.html',
-                controller: "searchComplaintCtrl"
+                templateUrl: 'view/pesquisaQueixa.html',
+                controller: "PesquisaQueixaCtrl as pesquisaQueixaCtrl"
               }
             }
         })
-        .state("vs.searchAverage", {
-            url: "/searchAverage",
+        .state("vs.pesquisaMediaMedico", {
+            url: "/pesquisaMediaMedico",
             views: {
               content: {
-                templateUrl: 'view/search_average_per_patient.html',
-                controller: "searchAverageCtrl"
+                templateUrl: 'view/pesquisaMediaMedico.html',
+                controller: "PesquisaMediaMedicoCtrl as pesquisaMediaMedicoCtrl"
               }
             }
         })
-        .state("vs.generalSituationComplaints", {
-            url: "/generalSituationComplaints",
+        .state("vs.situacaoQueixas", {
+            url: "/situacaoQueixas",
             views: {
               content: {
-                templateUrl: 'view/generalSituationComplaints.html',
-                controller: "generalSituationComplaintsCtrl"
+                templateUrl: 'view/situacaoQueixas.html',
+                controller: "SituacaoQueixasCtrl as situacaoQueixasCtrl"
               }
             }
         })
-        .state("vs.registerComplaint", {
-            url: "/registerComplaint",
+        .state("vs.registraQueixa", {
+            url: "/registraQueixa",
             views: {
               content: {
-                templateUrl: 'view/registerComplaint.html',
-                controller: "registerComplaintCtrl"
+                templateUrl: 'view/registraQueixa.html',
+                controller: "RegistraQueixaCtrl as registraQueixaCtrl"
               }
             }
         })
-        .state("vs.successPage", {
-            url: "/succesPage/:id",
+        .state("vs.sucesso", {
+            url: "/sucesso/:id",
             views: {
                 content: {
-                    templateUrl: 'view/successPage.html',
-                    controller: "messageCreatedComplaintCtrl"
+                    templateUrl: 'view/sucesso.html',
+                    controller: "QueixaMensagemCtrl as queixaMensagemCtrl"
                 }
             }
         });

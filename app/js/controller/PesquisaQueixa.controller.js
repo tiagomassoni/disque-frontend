@@ -2,17 +2,18 @@
 (function() {
 	var app = angular.module('vs');
 
-	app.controller("searchComplaintCtrl", function ($scope, $http) {
+	app.controller("PesquisaQueixaCtrl", function PesquisaQueixaCtrl(toastr, QueixaService) {
 
-	    $scope.complaint;
+		var pesquisaQueixaCtrl = this;
+	    pesquisaQueixaCtrl.queixa;
 
-	    $scope.searchComplaint = function (id) {
-	    	// TODO: colocar chamadas http em um service assincrono com $q.deffer
-	        $http.get("http://localhost:5000/SpringBootRestApi/api/queixa/" + id).then(function successCallback(response) {
-	            $scope.complaint = response.data;
-	        }, function errorCallback(error) {
-	            $scope.complaint = null;
-	            console.log(error);
+	    pesquisaQueixaCtrl.getQueixa = function getQueixa(id) {
+	        QueixaService.getQueixa(id)
+	        .then(function success(response) {
+	            pesquisaQueixaCtrl.queixa = response.data;
+	        }, function error() {
+	            pesquisaQueixaCtrl.queixa = null;
+	            toastr.error(error);
 	        });
 	    }
 	});
