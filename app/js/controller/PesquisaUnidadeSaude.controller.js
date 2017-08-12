@@ -1,17 +1,20 @@
-app.controller("searchHealthUnitCtrl", function ($scope, $http) {
+'use strict';
+(function() {
+    var app = angular.module('vs');
 
-    $scope.units = [];
+    app.controller("PesquisaUnidadeSaudeCtrl", function PesquisaUnidadeSaudeCtrl(toastr, UnidadeSaudeService) {
 
-    $scope.searchHU = function (neighborhood) {
-        $http.get("http://localhost:5000/SpringBootRestApi/api/unidade/busca?bairro=" + neighborhood)
-            .then(function success(response) {
-                $scope.units = [];
-                $scope.units.push(response.data);
-                console.log("Foram encontradas Unidades de saúde");
-                console.log(response.data);
-            }, function failed(error) {
-                console.log("Erro na busca de unidades");
-                console.log(error.data.errorMessage);
-            });
-    }
-});
+        var pesquisaUnidadeSaudeCtrl = this;
+        pesquisaUnidadeSaudeCtrl.unidades = [];
+
+        pesquisaUnidadeSaudeCtrl.pesquisaUnidadeSaude = function pesquisaUnidadeSaude(bairro) {
+            UnidadeSaudeService.pesquisaUnidadeSaude(bairro)
+                .then(function success(response) {
+                    pesquisaUnidadeSaudeCtrl.unidades = [];
+                    pesquisaUnidadeSaudeCtrl.unidades.push(response.data);
+                }, function error() {
+                    toastr.error("Erro na busca de unidades");
+                });
+        }
+    });
+})();

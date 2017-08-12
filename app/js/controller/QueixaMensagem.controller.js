@@ -1,8 +1,11 @@
-app.controller("messageCreatedComplaintCtrl", function ($scope, $state) {
-    $scope.responseComplaintId = "";
-    var showMessage = function () {
-        $scope.responseComplaintId = $state.params.id;
-    }
+'use strict';
+(function() {
+    var app = angular.module('vs');
 
-    showMessage();
-});
+	app.controller("QueixaMensagemCtrl", function QueixaMensagemCtrl($state) {
+
+		var queixaMensagemCtrl = this;
+	    queixaMensagemCtrl.queixaId = $state.params.id;
+	    
+	});
+})();

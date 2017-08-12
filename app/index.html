@@ -13,13 +13,6 @@
     <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="bower_components/angular-toastr/dist/angular-toastr.css">
     <link rel="stylesheet" href="css/main.css">
-
-</head>
-
-<body ng-app="vs" ng-cloak>
-    <div ui-view="main"></div>
-    <div ng-include="'view/include/footer.html'"></div>
-
     <!-- Bower scripts: -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/jquery-ui/jquery-ui.js"></script>
@@ -32,6 +25,11 @@
     <!-- Angular ui-router -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js"></script>
 
+</head>
+
+<body ng-app="vs" ng-cloak>
+    <div ui-view="main"></div>
+    <div ng-include="'view/include/footer.html'"></div>
     <!-- Application scripts: -->
     <script src="js/app.js"></script>
 
@@ -44,8 +42,13 @@
     <script src="js/controller/MediaMedico.controller.js"></script>
     <script src="js/controller/PesquisaQueixa.controller.js"></script>
     <script src="js/controller/PesquisaUnidadeSaude.controller.js"></script>
-    <script src="js/controller/QueixaSituacao.controller.js"></script>
+    <script src="js/controller/SituacaoQueixas.controller.js"></script>
     <script src="js/controller/QueixaMensagem.controller.js"></script>
+
+    <!-- Services -->
+    <script src="js/service/Queixa.service.js"></script>
+    <script src="js/service/UnidadeSaude.service.js"></script>
+    <script src="js/service/Geral.service.js"></script>
 
 </body>
 

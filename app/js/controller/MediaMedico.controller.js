@@ -1,12 +1,18 @@
-app.controller("searchAverangeCtrl", function ($scope, $http) {
+'use strict';
+(function() {
+	var app = angular.module('vs');
 
-    $scope.average = null;
+	app.controller("PesquisaMediaMedicoCtrl", function PesquisaMediaMedicoCtrl(toastr, GeralService) {
 
-    $scope.searchAveragePerPatient = function (id) {
-        $http.get("http://localhost:5000/SpringBootRestApi/api/geral/medicos/" + id).then(function successCallback(response) {
-            $scope.average = response.data.obj;
-        }, function errorCallback(error) {
-            console.log("Unidade Não Encontrada");
-        });
-    }
-});
+		var pesquisaMediaMedicoCtrl = this;
+	    pesquisaMediaMedicoCtrl.media = null;
+
+	    pesquisaMediaMedicoCtrl.pesquisaMediaMedicoPorPaciente = function pesquisaMediaMedicoPorPaciente(unidadeSaudeId) {
+	        GeralService.getMediaMedico(unidadeSaudeId).then(function success(response) {
+	            pesquisaMediaMedicoCtrl.media = response.data.obj;
+	        }, function error() {
+	            toastr.error("Unidade Não Encontrada");
+	        });
+	    }
+	});
+})();

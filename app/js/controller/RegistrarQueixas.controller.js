@@ -1,13 +1,19 @@
-app.controller("registerComplaintCtrl", function ($scope, $http, toastr, $state) {
+'use strict';
+(function() {
+    var app = angular.module('vs');
 
-    $scope.registerComplaint = function (complaint) {
-        $http.post("http://localhost:5000/SpringBootRestApi/api/queixa/", JSON.stringify(complaint))
-            .then(function success(response) {
-                toastr.success("Queixa adicionada com sucesso!");
-                $state.go('vs.successPage', {id: response.data.id});
-            }, function error(error) {
-                console.log(error);
-                console.log("Problemas ao tentar adicionar queixa.");
-            });
-    }
-});
+    app.controller("RegistraQueixaCtrl", function RegistraQueixaCtrl(toastr, $state, QueixaService) {
+
+        var registraQueixaCtrl = this;
+
+        registraQueixaCtrl.registraQueixa = function registraQueixa(queixa) {
+            QueixaService.registraQueixa(queixa)
+                .then(function success(response) {
+                    toastr.success("Queixa adicionada com sucesso!");
+                    $state.go('vs.sucesso', {id: response.data.id});
+                }, function error() {
+                    toastr.error("Problemas ao tentar adicionar queixa.");
+                });
+        }
+    });
+})();

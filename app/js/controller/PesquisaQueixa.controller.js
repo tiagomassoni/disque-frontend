@@ -1,12 +1,20 @@
-app.controller("searchComplaintCtrl", function ($scope, $http) {
-    $scope.complaint;
+'use strict';
+(function() {
+	var app = angular.module('vs');
 
-    $scope.searchComplaint = function (id) {
-        $http.get("http://localhost:5000/SpringBootRestApi/api/queixa/" + id).then(function successCallback(response) {
-            $scope.complaint = response.data;
-        }, function errorCallback(error) {
-            $scope.complaint = null;
-            console.log(error);
-        });
-    }
-});
+	app.controller("PesquisaQueixaCtrl", function PesquisaQueixaCtrl(toastr, QueixaService) {
+
+		var pesquisaQueixaCtrl = this;
+	    pesquisaQueixaCtrl.queixa;
+
+	    pesquisaQueixaCtrl.getQueixa = function getQueixa(id) {
+	        QueixaService.getQueixa(id)
+	        .then(function success(response) {
+	            pesquisaQueixaCtrl.queixa = response.data;
+	        }, function error() {
+	            pesquisaQueixaCtrl.queixa = null;
+	            toastr.error(error);
+	        });
+	    }
+	});
+})();
