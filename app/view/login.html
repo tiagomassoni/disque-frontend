@@ -1,19 +1,13 @@
 <section id="login-page">
-
-
     <form class="form-login">
         <h2 class="form-login-heading">Logue-se no sistema</h2>
         <div class="login-wrap">
-            <input type="text" class="form-control" placeholder="Email" autofocus>
+            <input type="text" class="form-control" placeholder="Email" ng-model="loginCtrl.formulario.email" autofocus>
             <br>
-            <input type="password" class="form-control" placeholder="Password">
+            <input type="password" class="form-control" placeholder="Password" ng-model="loginCtrl.formulario.password" >
             <br>
             <button type="submit" ng-click="loginCtrl.login()" class="btn btn-theme btn-block"><i class="fa fa-lock"></i> ACESSAR</button>
             <hr>
-
         </div>
     </form>
-
-
-
 </section>

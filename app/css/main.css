@@ -29,7 +29,7 @@ body {
 
 .form-login {
 	max-width: 530px;
-	margin: 100px auto 0;
+	margin: 50px auto 0;
 	background: #fff;
 	border-radius: 5px;
 	-webkit-border-radius: 5px;
@@ -48,7 +48,7 @@ body {
 	font-weight: 300;
 }
 .login-wrap {
-	padding: 20px;
+	padding: 15px;
 }
 .login-wrap .registration {
 	text-align: center;
@@ -61,7 +61,7 @@ body {
 .site-footer {
     background: #2978A0;
     color: #fff;   
-    padding: 10px 0;
+    padding: 10px 5px;
     text-align: center;
 
 }

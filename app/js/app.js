@@ -74,15 +74,6 @@
             }
         })
 
-        .state("login", {
-            url: '/login', 
-            views: {
-                main: {
-                    templateUrl: 'view/login.html',
-                    controller: 'LoginController as loginCtrl'
-                }
-            }
-        })
 
         .state("vs.sucesso", {
             url: "/sucesso/:id",
@@ -90,6 +81,17 @@
                 content: {
                     templateUrl: 'view/sucesso.html',
                     controller: "QueixaMensagemCtrl as queixaMensagemCtrl"
+                }
+            }
+        })
+        
+        
+        .state("login", {
+            url: '/login', 
+            views: {
+                main: {
+                    templateUrl: 'view/login.html',
+                    controller: 'LoginController as loginCtrl'
                 }
             }
         });
