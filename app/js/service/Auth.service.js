@@ -9,8 +9,6 @@
 
         const ADMIN_LOGIN = "/admin/login";
 
-        service.user;
-
 
         function _realizaLogin(formulario) {
 
