@@ -73,12 +73,25 @@
               }
             }
         })
+
+
         .state("vs.sucesso", {
             url: "/sucesso/:id",
             views: {
                 content: {
                     templateUrl: 'view/sucesso.html',
                     controller: "QueixaMensagemCtrl as queixaMensagemCtrl"
+                }
+            }
+        })
+        
+        
+        .state("login", {
+            url: '/login', 
+            views: {
+                main: {
+                    templateUrl: 'view/login.html',
+                    controller: 'LoginController as loginCtrl'
                 }
             }
         });
