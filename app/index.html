@@ -28,12 +28,24 @@
 </head>
 
 <body ng-app="vs" ng-cloak>
-    <div ui-view="main"></div>
+
+    <section class="site-min-height">
+        <div ui-view="main"></div>
+    </section>
+
+
+
     <div ng-include="'view/include/footer.html'"></div>
+
+
+
+
+
+
     <!-- Application scripts: -->
     <script src="js/app.js"></script>
 
-    <!--Value--> 
+    <!--Value-->
     <script src="js/value/ConfigValue.js"></script>
 
     <!--Controllers-->
@@ -44,11 +56,16 @@
     <script src="js/controller/PesquisaUnidadeSaude.controller.js"></script>
     <script src="js/controller/SituacaoQueixas.controller.js"></script>
     <script src="js/controller/QueixaMensagem.controller.js"></script>
+    <script src="js/controller/Login.controller.js"></script>
+
 
     <!-- Services -->
     <script src="js/service/Queixa.service.js"></script>
     <script src="js/service/UnidadeSaude.service.js"></script>
     <script src="js/service/Geral.service.js"></script>
+
+    <!--Assets-->
+    <script src="js/assets/jquery.backstretch.min.js"></script>
 
 </body>
 

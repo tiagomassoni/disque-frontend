@@ -73,6 +73,17 @@
               }
             }
         })
+
+        .state("login", {
+            url: '/login', 
+            views: {
+                main: {
+                    templateUrl: 'view/login.html',
+                    controller: 'LoginController as loginCtrl'
+                }
+            }
+        })
+
         .state("vs.sucesso", {
             url: "/sucesso/:id",
             views: {
