@@ -21,9 +21,19 @@
                 abstract: true,
                 url: "/admin",
                 templateUrl: "view/dashboard.html",
-                controller: "AdminController as adminCtrl"
+                controller: "AdminController as adminCtrl",
+                resolve: {
+                    security: ['$q', function ($q) {
+                        if (localStorage.getItem("ADMIN_LOGGED") === null) {
+                            return $q.reject("Not Authorized");
+                        }
+                    }]
+                }
 
             })
+
+
+
 
             .state("admin.home", {
                 url: "/home",
@@ -105,10 +115,30 @@
                 url: '/login',
                 templateUrl: 'view/login.html',
                 controller: 'LoginController as loginCtrl'
+            })
+
+            .state("nao-autorizado", {
+                url: '/unauthorized',
+                templateUrl: 'view/naoAutorizado.html'
+
+
             });
 
         $urlRouterProvider.otherwise('/');
         $locationProvider.html5Mode(false);
 
-    });
+    })
+
+
+    app.run(['$rootScope', '$state', function ($rootScope, $state) {
+
+        $state.defaultErrorHandler(function (error) {
+            console.log(error);
+            $state.go("login");
+        })
+
+
+
+    }]);
+
 })();

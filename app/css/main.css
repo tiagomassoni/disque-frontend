@@ -63,3 +63,7 @@ body {
     padding: 10px 5px;
     text-align: center;
 }
+
+.site-footer a {
+    color: #fff;
+}

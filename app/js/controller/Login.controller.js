@@ -9,25 +9,25 @@
         loginCtrl.formulario = {};
 
         loginCtrl.login = function () {
-          
+
+
             return AuthService.realizaLogin(loginCtrl.formulario).then(
                 function success(response) {
-                    console.log(response)
-                    
                     loginCtrl.formulario = {};
-                    $state.go("admin.home")
+                    console.log(AuthService.getAdmin());
                     bg.destroy();
+                    $state.go("admin.home")
+
 
                 }, function error(error) {
                     console.log(error);
                     toastr.error("Nao deu");
-                     loginCtrl.formulario = {};
+                    loginCtrl.formulario = {};
 
                 }
             )
 
         }
-
 
         let bg = $.backstretch("img/login-bg.jpg", { speed: 250 });
 
