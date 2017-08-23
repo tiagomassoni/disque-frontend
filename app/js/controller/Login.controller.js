@@ -15,11 +15,13 @@
                     console.log(response)
                     
                     loginCtrl.formulario = {};
-                    $state.go("vs.home")
+                    $state.go("admin.home")
                     bg.destroy();
+
                 }, function error(error) {
                     console.log(error);
                     toastr.error("Nao deu");
+                     loginCtrl.formulario = {};
 
                 }
             )
