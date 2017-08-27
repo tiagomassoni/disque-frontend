@@ -1,8 +1,9 @@
 class Admin {
 
     constructor (data){
-        data = data || {};
-        _.extend(this, data);
+        this.nome = data.nome; 
+        this.email = data.email; 
+       
     }
 
 }
